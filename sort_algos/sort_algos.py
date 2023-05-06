@@ -3,7 +3,7 @@ import time
 start_time = time.time()
 
 class Solution:
-    def sortArray(self, nums: list[int]) -> list[int]:
+    def sortArray(self, nums):
         # BUBBLE_SORT
         def bubbleSort(array):
             swapped = False

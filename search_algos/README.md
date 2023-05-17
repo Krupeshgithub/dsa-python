@@ -10,12 +10,12 @@
 
 # Time Complexity
 
-  1) First case:
+  ```1) First case:
     Range = range(0, 100**4)
     findingKey = 90000009
 
 
-   ```90000009                                           Time (Second)
+    90000009                                           Time (Second)
     /--------Binary Search Algorithm------------/ 0.0022661685943603516
 
     90000009
@@ -27,11 +27,11 @@
     90000009
     /--------Interpolation Search------------/ 0.0001239776611328125```
 
- 2) Second case:
+ ```2) Second case:
     Range = range(0, 100**4)
     findingKey = 80000000
 
-    ```80000000
+    80000000
     /--------Binary Search Algorithm------------/ 5.0067901611328125e-05
 
     80000000

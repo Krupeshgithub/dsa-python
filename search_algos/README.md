@@ -25,9 +25,9 @@
     /--------Exponential Search------------/ 7.807981014251709
 
     90000009
-    /--------Interpolation Search------------/ 0.0001239776611328125```
+    /--------Interpolation Search------------/ 0.0001239776611328125
 
- ```2) Second case:
+    2) Second case:
     Range = range(0, 100**4)
     findingKey = 80000000
 
@@ -41,4 +41,4 @@
     /--------Exponential Search------------/ 7.853741884231567
 
     80000000
-    /--------Interpolation Search------------/ 7.414817810058594e-05```
+    /--------Interpolation Search------------/ 7.414817810058594e-05

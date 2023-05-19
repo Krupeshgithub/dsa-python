@@ -14,9 +14,6 @@ if findingKey < index ----> hight is 6 and low is 0
 Time Complexity: O(log(n))
 """
 
-
-
-
 import time
 
 def binarySearch(arr, skey):

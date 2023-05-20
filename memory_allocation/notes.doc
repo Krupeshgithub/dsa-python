@@ -1,0 +1,34 @@
+# Memory Allocation Python
+
+Memory allocation in python involves a private heap and stack.
+
+In python, everything is an object. It can be sub-classed (inherited), assigned to a variable and passed as an argument to a function.
+
+I remember getting .pyc or __pycache__ folder including in the .gitignore file. I didn't know why it was created along with my python project. The actual intension is to cached the bytecode for fater execution of code.
+
+```Python Interpreter receives its share for execution. How much memory is allocated will depend on the python versions, platform, and environment setting```
+
+import sys
+
+sys.getsizeof({})
+>> 64 bytes
+
+sys.getsizeof([])
+>> 56 bytes
+
+sys.getsizeof("")
+>> 49 bytes
+
+OR 
+
+{}.__sizeof__()
+>> 48 bytes
+
+[].__sizeof__()
+>> 40 bytes
+
+"".__sizeof__()
+>> 49 bytes
+
+The __sizeof__() method and the getsizeof() method both are used to get the size of the objects used in the program. The getsizeof() method returns an additional overhead for garbage collection along with each element size of the list. The __sizeof__() method returns the actual size of the object without any overhead.
+

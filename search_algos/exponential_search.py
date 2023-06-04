@@ -25,7 +25,7 @@ def exponentialSearch(lst, skey):
 *arr, = range(500)
 print(arr)
 
-while True:
+while True:                                                                                                                                                                                                                                                 
     num = int(input("Enter number:"))
     if num == 0:
         break

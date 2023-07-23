@@ -29,7 +29,7 @@ class Node:
                     self.right = Node(data)
                 else:
                     self.right.insert(data)
-        else:
+        else: 
             self.data = data
         
     def printTree(self) -> None:

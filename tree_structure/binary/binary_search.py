@@ -37,3 +37,29 @@ class TreeNode:
             else:
                 self.right = TreeNode(data)
                 return None
+
+    def min_value(self, tree):
+        """
+        Get min value on the binary search tree.
+        :tree type: List[TreeNode[data, left, right]]
+        :rtype: None
+        """
+        curr = tree
+
+        while (curr.left is not None):
+            curr = curr.left
+
+        return curr
+
+    def max_value(self, tree):
+        """
+        Get max value on the binary search tree.
+        :tree type: List[TreeNode[data, left, right]]
+        :rtype: None
+        """
+        curr = tree
+
+        while (curr.right is not None):
+            curr = curr.right
+        
+        return curr

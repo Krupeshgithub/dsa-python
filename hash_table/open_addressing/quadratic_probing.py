@@ -1,49 +1,58 @@
 """Hash table open addressing with help of quadratic probing."""
+from __future__ import annotations
+from ctypes import Array
 
+from dataclasses import dataclass
+
+
+@dataclass
 class HashTable:
-    def __init__(self):
-        """
-        :intro: Table, table length and load factor define on
-                this decorator.
-        :rtype: None
-        """
-        self.max_length = 8
-        self.max_load_factor = 0.75
-        self.size = 0
-        self.table = [None] * self.max_length
+    """
+    Table, table length and load factor define on
+    this instace variables.
+    """
+    max_length: int = 8
+    max_load_factor: float = 0.75
+    size: int = 0
+    table: Array = [None] * max_length
+
 
     def __len__(self):
         """
-        :intro: Return length of the current table.
+        Return length of the current table.
+
         :rtype: int
         """
         return self.size
 
     def _hash(self, key):
         """
-        :intro: Return hash value.
-        :key type: Any
-        :rtype: Any
+        Return hash value.
+
+        :type key: any
+        :rtype: any
         """
         return (hash(key) % self.max_length)
 
     def _increment_key(self, index):
         """
-        :intro: If the collision happed then key will be
-                increment at 1 position.
-        :key type: int
+        If the collision happed then key will be
+        increment at 1 position.
+
+        :type key: int
         :rtype: None
         """
         count = 1
-        while self.table[index] == 1:
+        while self.table[index] is None:
             index = (index + (count * count)) % self.max_length
             count += 1
         return ((index + 1) % self.max_length)
 
     def _resize(self):
         """
-        :intro: If the hash table length is full then
-                increase the table length with twise size.
+        If the hash table length is full then
+        increase the table length with twise size.
+
         :rtype: None
         """
         self.max_length *= 2
@@ -58,9 +67,10 @@ class HashTable:
     
     def __getitem__(self, key):
         """
-        :intro: Search the key on every row of the table.
-        :key type: Any
-        :rtype: Any
+        Search the key on every row of the table.
+
+        :type key: any
+        :rtype: any
         """
         index = self._hash(key)
         if not self.table[index]:
@@ -76,11 +86,12 @@ class HashTable:
 
     def __setitem__(self, key, value):
         """
-        :intro: Set key and value on the index of
-                hash table.
-        :key type: Any
-        :value type: Any
-        :rtype: Any
+        Set key and value on the index of
+        hash table.
+
+        :type key: any
+        :type value: any
+        :rtype: any
         """
         self.size += 1
         index = self._hash(key)
@@ -106,3 +117,9 @@ print(hstable[11804573])
 hstable[11804584] = "Omeswar"
 print(len(hstable))
 print(hstable[11804584])
+
+
+"""
+Reference:
+    "https://www.scaler.com/topics/quadratic-probing/"
+"""

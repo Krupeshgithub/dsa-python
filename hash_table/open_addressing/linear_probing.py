@@ -1,45 +1,65 @@
-"""Hash table with open addressing with help of linear probing."""
+"""Hash table with open addressing (closed hashing) with help of linear probing."""
+from __future__ import annotations
+from ctypes import Array
 
+from dataclasses import dataclass
+
+
+@dataclass
+class DummyNode:
+    """
+    When delete any node in the hash table
+    then we need to add dummy node else, search
+    opration not working.
+    """
+    key: any
+    value: any
+
+
+@dataclass
 class HashTable:
-    def __init__(self):
-        """
-        :intro: Table, table length and load factor define on
-                this decorator.
-        :rtype: None
-        """
-        self.max_length = 8
-        self.max_load_factor = 0.75
-        self.size = 0
-        self.table = [None] * self.max_length
-    
+    """
+    Create max-length of bucket, max-load-factor
+    with m/n (size)/(max_length), size and array.
+    """
+    max_length: int = 8
+    max_load_factor: float = 0.75
+    size: int = 0
+    table: Array = [None] * max_length
+
+
     def __len__(self):
         """
-        :intro: Return length of the current table.
+        Return length of the current bucket.
+        
         :rtype: int
         """
         return self.size
 
     def _hash(self, key):
         """
-        :intro: Return hash value.
-        :key type: Any
+        Return hash value.
+        
+        :type key: any
         :rtype: Any
         """
         return (hash(key) % self.max_length)
 
     def _increment_key(self, key):
         """
-        :intro: If the collision happed then key will be
-                increment at 1 position.
-        :key type: int
+        If the collision happed then key will be
+        increment at 1 position.
+        
+        :type key: int
         :rtype: None
         """
         return ((key + 1) % self.max_length)
 
     def _resize(self):
         """
-        :intro: If the hash table length is full then
-                increase the table length with twise size.
+        If the hash table length is full then
+        increase the table length with twise size.
+        
         :rtype: None
         """
         self.max_length *= 2
@@ -48,12 +68,13 @@ class HashTable:
         self.table = [None] * self.max_length
         temp_table += self.table
         return None
-    
+
     def __getitem__(self, key):
         """
-        :intro: Search the key on every row of the table.
-        :key type: Any
-        :rtype: Any
+        Search the key on every row of the table.
+        
+        :type key: any
+        :rtype: any
         """
         index = self._hash(key)
         if self.table[index] is None:
@@ -70,11 +91,12 @@ class HashTable:
 
     def __setitem__(self, key, value):
         """
-        :intro: Set key and value on the index of
-                hash table.
-        :key type: Any
-        :value type: Any
-        :rtype: Any
+        Set key and value on the index of
+        hash table.
+        
+        :type key: any
+        :type value: any
+        :rtype: any
         """
         self.size += 1
         index = self._hash(key)
@@ -89,6 +111,30 @@ class HashTable:
             self.size / float(self.max_length)
         ):
             self._resize()
+
+        
+    def __delitem__(self, key):
+        """
+        Hash funciton travers lineary when 
+        key found then add tombstone in these point
+        bcz when search operation will not stop otherwise
+        searching will not work.
+
+        :type key: any
+        :rtype: any
+        """
+
+        index = self._hash(key)
+        while self.table[index] is not None:
+            if self.table[index][0] == key:
+                temp = self.table[index]
+                self.table[index] = DummyNode(-1, -1)
+                self.size -= 1
+                return temp[1]
+            index += 1
+            index %= self.max_length
+        return None
+
 
 hstable = HashTable()
 hstable["name"] = "krupesh"

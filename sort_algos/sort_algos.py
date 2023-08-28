@@ -28,7 +28,7 @@ class Solution:
                     j -= 1
                 array[j+1] = key
             return array
-        
+
         # SELECTION_SORT
         def selectionSort(array):
             for i in range(len(array)-1):

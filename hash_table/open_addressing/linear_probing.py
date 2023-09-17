@@ -26,7 +26,7 @@ class HashTable:
     max_load_factor: float = 0.75
     size: int = 0
     table: Array = [None] * max_length
-
+    
 
     def __len__(self):
         """

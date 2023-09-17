@@ -1,4 +1,8 @@
-"""Hash table open addressing with help of quadratic probing."""
+"""
+Hash table open addressing with help of quadratic probing.
+Reference:
+    "https://www.scaler.com/topics/quadratic-probing/"
+"""
 from __future__ import annotations
 from ctypes import Array
 
@@ -117,9 +121,3 @@ print(hstable[11804573])
 hstable[11804584] = "Omeswar"
 print(len(hstable))
 print(hstable[11804584])
-
-
-"""
-Reference:
-    "https://www.scaler.com/topics/quadratic-probing/"
-"""

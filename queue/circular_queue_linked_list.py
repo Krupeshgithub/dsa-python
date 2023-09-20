@@ -4,7 +4,7 @@ Implementation of Circular Queue using linked lists
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from typing import DefaultDict
 
 
 class CircularQueueLinkedList:
@@ -188,13 +188,20 @@ class CircularQueueLinkedList:
         ), "Full Queue"
 
 
-@dataclass
 class Node:
     """
     Initialize linked list node
     """
 
-    data = next = prev = None
+    def __init__(self):
+        """
+        Dounbly linked list
+        prev, data, next
+        """
+        self.prev: Node[DefaultDict] = None
+        self.data: int = None
+        self.next: Node[DefaultDict] = None
+
 
 cq = CircularQueueLinkedList(6)
 cq.enqueue('a')

@@ -42,5 +42,3 @@ array = [38, 41, 25, 42, 35, 19, 45, 12, 33, 21, 0, 47, 18, 15, 26, 29, 30,
 itr_time = time.time() - starting
 print("sorted array:", insertionSort(array))
 print("time taken:", itr_time)
-        
-        

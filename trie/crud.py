@@ -146,5 +146,6 @@ class Trie:
         return self.__del(self, word)
 
 words = "apple bannna".split()
+
 trie = Trie()
 trie.insert_many(words)

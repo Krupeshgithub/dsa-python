@@ -33,9 +33,9 @@ def knapsack(
     if T[length][capacity] != 1:
         return T[length][capacity]
 
-        # Hypothesis
+    # Hypothesis
     if (capacity >= weight[length - 1]):
-        T[length][capacity] =  max(
+        resp = max(
             value[length - 1]
             + knapsack(
                 weight=weight,
@@ -50,8 +50,9 @@ def knapsack(
                 capacity=capacity
             )
         )
-        return T[length][capacity]
+        return resp
     else:
+        # Repeated part
         T[length][capacity] = knapsack(
                 weight=weight,
                 value=value,

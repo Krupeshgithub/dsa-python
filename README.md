@@ -24,3 +24,5 @@
 ## Reference
 
 >- [TheAlgorithms](https://github.com/TheAlgorithms/Python)
+>- [DSA](https://www.enjoyalgorithms.com/)
+>- [Blogs](https://shubhamgautamsuper30.medium.com/)

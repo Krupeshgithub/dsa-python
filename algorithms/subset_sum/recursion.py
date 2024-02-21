@@ -47,5 +47,4 @@ resp = subset_sum(
     number=11,
     length=len(lst)
 )
-print(resp == 11)
 print("Execution time: ", time.time() - start_time)

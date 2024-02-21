@@ -32,6 +32,9 @@ def subset_sum(
     if ((len(lst) % 2 != 0)) or (number == 0 or length == 0):
         return 0
     
+    if T[length][number] != 1:
+        return T[length][number]
+
     # Hypothesis
     if (number >= lst[length - 1]):
         resp = max(
@@ -45,8 +48,8 @@ def subset_sum(
         return T[length][number]
 
 
-lst = [1, 5, 11, 5]
-T = np.ones([len(lst)+1, 11+1], int)
+lst = [1, 2, 3, 5]
+T = np.ones([len(lst)+1, sum(lst)+1], int)
 resp = subset_sum(
     lst=lst,
     number=sum(lst)//2,

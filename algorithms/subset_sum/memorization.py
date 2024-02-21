@@ -51,6 +51,7 @@ resp = subset_sum(
     lst=lst,
     number=11,
     length=len(lst)
+
 )
 print(resp == 11)
 print("Execution time: ", time.time() - start_time)
